@@ -1,0 +1,26 @@
+{
+  "precision": 0.9699,
+  "recall": 0.9415,
+  "f1": 0.9555,
+  "pr_auc": 0.9935,
+  "roc_auc": 0.9999,
+  "tp": 322,
+  "fp": 10,
+  "fn": 20,
+  "test_transactions": 27066,
+  "test_fraud": 342,
+  "backend": "xgboost",
+  "threshold": 0.87,
+  "train_seconds": 2.59,
+  "machine": "AMD64",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "dataset": "synthetic",
+  "top_features": [
+    "balance_drain",
+    "type_PAYMENT",
+    "type_CASH_IN",
+    "type_DEBIT",
+    "new_payee",
+    "type_TRANSFER"
+  ]
+}

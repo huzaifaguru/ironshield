@@ -1,0 +1,9 @@
+# Core engine + API (runs on IBM LinuxONE, s390x)
+numpy
+pandas
+scikit-learn
+xgboost          # optional: falls back to scikit-learn if no s390x build is available
+networkx
+fastapi
+uvicorn
+requests

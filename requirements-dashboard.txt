@@ -1,0 +1,4 @@
+# Analyst dashboard (runs on the analyst's laptop and connects to the LinuxONE API)
+streamlit>=1.37
+requests
+pandas

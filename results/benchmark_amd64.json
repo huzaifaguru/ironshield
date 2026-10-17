@@ -1,0 +1,16 @@
+{
+  "machine": "AMD64",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "python": "3.12.4",
+  "model_backend": "xgboost",
+  "transactions": 10000,
+  "latency_ms_avg": 1.721,
+  "latency_ms_p50": 1.437,
+  "latency_ms_p95": 2.908,
+  "latency_ms_p99": 7.276,
+  "throughput_tps_single_thread": 580.1,
+  "alerts_high": 223,
+  "alerts_medium": 28,
+  "live_precision": 0.982,
+  "live_recall": 0.982
+}
