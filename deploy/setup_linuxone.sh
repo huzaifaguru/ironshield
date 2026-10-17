@@ -55,8 +55,26 @@ if [ "$MODE" = "native" ]; then
 
   open_port
   echo "== Starting the API on port $PORT (log: api.log) =="
-  nohup .venv/bin/uvicorn ironshield.api:app --host 0.0.0.0 --port "$PORT" > api.log 2>&1 &
-  sleep 5 && curl -s "localhost:$PORT/health" && echo
+  # systemd service: keeps the API running across SSH disconnects and reboots
+  sudo tee /etc/systemd/system/ironshield.service >/dev/null <<UNIT
+[Unit]
+Description=IronShield fraud detection API
+After=network-online.target
+
+[Service]
+User=$USER
+WorkingDirectory=$ROOT
+ExecStart=$ROOT/.venv/bin/python -m uvicorn ironshield.api:app --host 0.0.0.0 --port $PORT
+Restart=always
+StandardOutput=append:$ROOT/api.log
+StandardError=append:$ROOT/api.log
+
+[Install]
+WantedBy=multi-user.target
+UNIT
+  sudo systemctl daemon-reload
+  sudo systemctl enable --now ironshield
+  for i in $(seq 1 30); do curl -s "localhost:$PORT/health" && break; sleep 2; done; echo
 
 elif [ "$MODE" = "docker" ]; then
   IMAGE=registry.linuxone.cloud.marist.edu/l1cc/jupyterlab-image-s390x:latest

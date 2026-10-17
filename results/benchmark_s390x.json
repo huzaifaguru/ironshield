@@ -1,0 +1,16 @@
+{
+  "machine": "s390x",
+  "platform": "Linux-6.8.0-147-generic-s390x-with-glibc2.39",
+  "python": "3.12.3",
+  "model_backend": "xgboost",
+  "transactions": 20000,
+  "latency_ms_avg": 0.129,
+  "latency_ms_p50": 0.087,
+  "latency_ms_p95": 0.428,
+  "latency_ms_p99": 1.15,
+  "throughput_tps_single_thread": 7751.0,
+  "alerts_high": 257,
+  "alerts_medium": 18,
+  "live_precision": 0.961,
+  "live_recall": 0.961
+}

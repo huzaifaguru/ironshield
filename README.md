@@ -26,16 +26,22 @@ Scammers trick people into instant transfers, then launder the money through **m
 
 Fraud decisions only matter if they happen **before the money moves**, and banks already process those payments on IBM Z. Running the decision engine on LinuxONE means scoring in-line, next to the system of record, with no copying of sensitive data to outside systems, on a platform built for transaction throughput, pervasive encryption and on-chip AI inference (Telum). The model is saved in XGBoost's portable JSON format and can be compiled for Telum's AI accelerator with the IBM Z Deep Learning Compiler (ONNX) as the production path.
 
-## Results
+## Results (measured on IBM LinuxONE, s390x)
 
-Held-out "future" transactions (time-ordered split, 27,066 transactions, 342 frauds):
+Held-out "future" transactions (time-ordered split: 27,066 transactions, 342 frauds), model trained on LinuxONE:
 
 | Metric | Value |
 |---|---|
-| Precision | 97.0% |
-| Recall | 94.2% |
-| PR-AUC | 0.994 |
-| End-to-end decision time (privacy + features + model + mule graph + explanation), p50 | see `results/benchmark_s390x.json` (LinuxONE) and `results/benchmark_amd64.json` (laptop: 1.4 ms) |
+| Precision (alerts that were real fraud) | **96.3%** |
+| Recall (share of fraud caught) | **92.1%** |
+| PR-AUC | 0.990 |
+| Mule rings caught | **19 / 19** |
+| End-to-end decision time (privacy + features + model + mule graph + explanation), median | **0.087 ms** |
+| p95 / p99 | 0.43 ms / 1.15 ms |
+| Throughput, single core | **~7,750 transactions/s** |
+
+Raw numbers: [`results/benchmark_s390x.json`](results/benchmark_s390x.json), [`results/model_metrics.json`](results/model_metrics.json).
+Live API on LinuxONE Community Cloud: `http://148.100.109.96:8000/docs` (available during judging).
 
 > The data is synthetic (see below), so these numbers show the system works end to end; real-bank performance would need real data.
 
@@ -50,7 +56,7 @@ Held-out "future" transactions (time-ordered split, 27,066 transactions, 342 fra
 ### On IBM LinuxONE (API + model)
 ```bash
 git clone <this repo> && cd ironshield
-bash deploy/setup_linuxone.sh          # installs, trains on LinuxONE, benchmarks, starts the API on :8000
+bash deploy/setup_linuxone.sh          # installs prebuilt s390x packages, trains, benchmarks, runs the API as a systemd service on :8000
 # if a package will not install natively on s390x:
 bash deploy/setup_linuxone.sh docker   # uses IBM's prebuilt s390x ML image (pandas, scikit-learn, XGBoost)
 ```
