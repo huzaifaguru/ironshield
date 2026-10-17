@@ -25,7 +25,7 @@
   <!-- Box 1: Transaction Stream -->
   <rect x="40" y="220" width="150" height="70" rx="8" fill="#ffffff" stroke="#161616" stroke-width="1.5"/>
   <text x="115" y="250" text-anchor="middle" font-size="14" font-weight="700" fill="#161616">Transaction Stream</text>
-  <text x="115" y="270" text-anchor="middle" font-size="11" fill="#525252">TabFormer / PaySim replay</text>
+  <text x="115" y="270" text-anchor="middle" font-size="11" fill="#525252">PaySim-style payment replay</text>
 
   <!-- Box 2: Privacy Layer -->
   <rect x="215" y="220" width="150" height="70" rx="8" fill="#ffffff" stroke="#8a3ffc" stroke-width="2"/>
@@ -40,7 +40,7 @@
   <!-- Box 4a: Risk Model -->
   <rect x="565" y="130" width="150" height="70" rx="8" fill="#ffffff" stroke="#0f62fe" stroke-width="2"/>
   <text x="640" y="160" text-anchor="middle" font-size="14" font-weight="700" fill="#161616">Risk Scoring Model</text>
-  <text x="640" y="180" text-anchor="middle" font-size="11" fill="#525252">XGBoost / Snap ML</text>
+  <text x="640" y="180" text-anchor="middle" font-size="11" fill="#525252">XGBoost · TreeSHAP</text>
 
   <!-- Box 4b: Mule Graph -->
   <rect x="565" y="310" width="150" height="70" rx="8" fill="#ffffff" stroke="#0f62fe" stroke-width="2"/>
