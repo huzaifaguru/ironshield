@@ -4,6 +4,8 @@
 
 Team **Big Iron Brains** · IBM Z Datathon 2026 · Event code **SSF2026** · Theme: *Real-Time AI for Critical Decisions* (with *AI Secured: Innovation Without Exposure*)
 
+**Team:** Syed Mohammad Huzaifa (lead) · Munawwer Khan · Shaikh Muhammad Zain · Abdul Akhir · Saifullah
+
 ---
 
 ## The problem
