@@ -6,6 +6,8 @@ Team **Big Iron Brains** · IBM Z Datathon 2026 · Event code **SSF2026** · The
 
 **Team:** Syed Mohammad Huzaifa (lead) · Munawwer Khan · Shaikh Muhammad Zain · Abdul Akhir Saifullah
 
+🎬 **Demo video:** https://youtu.be/wgZrbunfb3k · 📊 **Pitch deck:** [docs/IronShield_Pitch_Deck.pdf](docs/IronShield_Pitch_Deck.pdf) · 🌐 **Live API on LinuxONE:** http://148.100.109.96:8000/docs
+
 ---
 
 ## The problem
